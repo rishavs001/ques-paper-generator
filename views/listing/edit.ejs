@@ -1,0 +1,53 @@
+<% layout("/layouts/boilerplate")%>
+
+  <body>
+    <h3>Edit Listing</h3>
+    <form method="POST" action="/listings/<%= listing.id%>?_method=PATCH">
+      <input class="form-control" name="question" value="<%= listing.question %>" type="text" />
+      <br />
+
+      <label for="listing[subject]">Select Subject :</label>
+      <select class="form-control" id="subject" name="subject">
+        <option value="<%=listing.subject%>">
+          <%=listing.subject%>
+        </option>
+        <% subject.forEach(function(subject){ %>
+          <option value="<%= subject %>">
+            <%= subject %>
+          </option>
+          <% }); %>
+      </select>
+
+      <br /><br />
+      <label for="listing[subject]">Topic</label>
+      <input class="form-control" name="topic" value="<%= listing.topic %>" type="text" />
+      <br /><br />
+
+      <label for="listing[difficulty]">Select Difficulty:</label>
+      <select class="form-control" id="difficulty" name="difficulty">
+        <option value="<%= listing.difficulty %>">
+          <%= listing.difficulty %>
+        </option>
+
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+        <!-- Add more options as needed -->
+      </select>
+      <br />
+
+      <label for="listing[marks]">Select Marks:</label>
+      <select class="form-control" id="marks" name="marks">
+        <option value="<%= listing.marks %>">
+          <%= listing.marks %>
+        </option>
+
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <!-- Add more options as needed -->
+      </select>
+      <br />
+      <input type="submit" class="btn btn-success" value="Save" />
+    </form>
+  </body>

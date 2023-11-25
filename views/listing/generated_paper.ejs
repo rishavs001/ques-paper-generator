@@ -1,0 +1,33 @@
+<% layout("/layouts/boilerplate")%>
+
+  <body>
+    <h1>Generated Question Paper</h1>
+    <table class="table table-bordered border-primary">
+      <tr>
+        <th>S.No</th>
+        <th>Question</th>
+
+        <th>Difficulty</th>
+
+        <th>Marks</th>
+      </tr>
+
+      <% let i=1 %>
+        <% generatedQuestions.forEach(function(question){ %>
+          <tr>
+            <td>
+              <%= i++ %>
+            </td>
+            <td>
+              <%= question.question %>
+            </td>
+            <td>
+              <%= question.difficulty %>
+            </td>
+            <td>
+              <%= question.marks %>
+            </td>
+          </tr>
+          <% }); %>
+    </table>
+  </body>

@@ -1,0 +1,52 @@
+<% layout("/layouts/boilerplate")%>
+
+  <body>
+    <h1>All Question</h1>
+    <br />
+    <table class="table table-bordered border-primary">
+      <tr>
+        <th>S.No</th>
+        <th>Question</th>
+        <th>Subject</th>
+        <th>Topic</th>
+        <th>difficulty</th>
+        <th>Marks</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+      <% let i=1 %>
+        <% for(let listing of Allquestion){ %>
+          <tr>
+            <td>
+              <%= i++ %>
+            </td>
+            <td>
+              <%= listing.question %>
+            </td>
+            <td>
+              <%= listing.subject %>
+            </td>
+            <td>
+              <%= listing.topic %>
+            </td>
+
+            <td>
+              <%= listing.difficulty %>
+            </td>
+            <td>
+              <%= listing.marks %>
+            </td>
+
+            <td>
+              <a href="/listings/<%= listing.id %>/edit" class="btn btn-info">Edit</a>
+            </td>
+            <td>
+              <form action="/listings/<%= listing.id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-info">Delete</button>
+              </form>
+            </td>
+          </tr>
+
+          <% } %>
+    </table>
+  </body>
